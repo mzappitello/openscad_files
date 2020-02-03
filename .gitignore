@@ -1,0 +1,4 @@
+# ignore all rendered stls and things. other users can re-assemble
+*.stl
+*.thing
+
