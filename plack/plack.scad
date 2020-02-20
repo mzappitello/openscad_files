@@ -57,7 +57,7 @@ inner_size = [
 inner_radius = 6;
 
 // text parameters
-winners = "José W &";
+winners = "";
 winners_size = 18;
 tournament_name = "Doubles 2o2o";
 tournament_size = 8;
@@ -91,16 +91,6 @@ union() {
     linear_extrude(height=color_b_height)
     text(text=winners, font=font, size=winners_size);
   }
-
-  translate([150, 35, color_a_height])
-  scale([0.4, 0.4, 0.4])
-  rotate([0, 0, 155])
-  import("knife.stl");
-
-  translate([136, 35.5, color_a_height])
-  rotate([0, 0, 335])
-  linear_extrude(height=2.5)
-  text(text="SD", font=font, size=5);
 
   translate(tournament_text_translate) {
     linear_extrude(height=color_b_height)
