@@ -39,7 +39,7 @@ wall_thickness = 25;
 outer_size = [190, 172, 60, color_a_height];
 outer_radius = 6;
 
-//*
+/*
 // MATERIAL A
 translate([outer_size[2]/2, -outer_size[1]/2 + 5, 0])
 rotate([0, 0, 90])
@@ -57,20 +57,20 @@ inner_size = [
 inner_radius = 6;
 
 // text parameters
-winners = "KMoney";
-winners_size = 20;
-tournament_name = "End Of Year Eight Ball";
+winners = "José W &";
+winners_size = 18;
+tournament_name = "Doubles 2o2o";
 tournament_size = 8;
 font = "Liberation Sans";
 
 // translation for text
 winner_text_translate = [
-  35,
+  7,
   30,
   color_a_height
 ];
 tournament_text_translate = [
-  60,
+  90,
   10,
   color_a_height
 ];
@@ -91,6 +91,17 @@ union() {
     linear_extrude(height=color_b_height)
     text(text=winners, font=font, size=winners_size);
   }
+
+  translate([150, 35, color_a_height])
+  scale([0.4, 0.4, 0.4])
+  rotate([0, 0, 155])
+  import("knife.stl");
+
+  translate([136, 35.5, color_a_height])
+  rotate([0, 0, 335])
+  linear_extrude(height=2.5)
+  text(text="SD", font=font, size=5);
+
   translate(tournament_text_translate) {
     linear_extrude(height=color_b_height)
     text(text=tournament_name, font=font, size=tournament_size);
