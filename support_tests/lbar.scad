@@ -12,10 +12,10 @@
 //
 // depth is how far the model goes in y
 
-h1 = 50;
+h1 = 20;
 h2 = 10;
-w1 = 20;
-w2 = 100;
+w1 = 15;
+w2 = 200;
 depth = 50;
 
 cube([ w1, depth, h1 ], false);

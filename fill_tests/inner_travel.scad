@@ -6,6 +6,8 @@ y_step = 10;
 inside_x = 20;
 outside_x = 100;
 
+translate([0, 0, z_height]) {
+rotate([180, 0, 0]) {
 difference() {
 translate([-inside_x/2, -y_length/2, 0])
 union() {
@@ -39,4 +41,6 @@ union() {
 translate([-100, -100, 15])
 rotate([5, 5, 0])
 cube([200, 200, 20]);
+}
+}
 }

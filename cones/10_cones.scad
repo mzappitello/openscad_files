@@ -1,7 +1,7 @@
 height = 50;
 radius_min = 1;
 radius_max = 10;
-count = 100;
+count = 10;
 
 radius_step = (radius_max - radius_min) / count;
 

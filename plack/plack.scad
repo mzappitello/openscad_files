@@ -1,3 +1,5 @@
+use <Atreyu.otf>
+
 module roundedRect(size, radius) {
   x_top = size[0];
   x_bottom = size[1];
@@ -57,7 +59,7 @@ inner_size = [
 inner_radius = 6;
 
 // text parameters
-winners = "";
+winners = "Team NorWege";
 winners_size = 18;
 tournament_name = "Doubles 2o2o";
 tournament_size = 8;
@@ -65,7 +67,7 @@ font = "Liberation Sans";
 
 // translation for text
 winner_text_translate = [
-  7,
+  25,
   30,
   color_a_height
 ];
@@ -89,7 +91,7 @@ union() {
   }
   translate(winner_text_translate) {
     linear_extrude(height=color_b_height)
-    text(text=winners, font=font, size=winners_size);
+    text(text=winners, font="Atreyu", size=winners_size);
   }
 
   translate(tournament_text_translate) {

@@ -1,11 +1,3 @@
-z_height = 20;
-
-y_length = 150;
-y_step = 10;
-
-inside_x = 20;
-outside_x = 100;
-
 module roundedTriangle(side_length, radius, height) {
   // extrude the shape through z
   linear_extrude(height=height)
@@ -29,55 +21,64 @@ module roundedTriangle(side_length, radius, height) {
   }
 }
 
-tsl = 150;
+tsl = 100;
 shift = 8;
 
-tsl_s = 25;
-shift_s = 50;
+tsl_s = 15;
+shift_s = 35;
+
+z_height = 30;
 
 difference() {
-union() {
-translate([0, tsl / shift, 0])
-roundedTriangle(tsl, 10, 15);
 
-translate([0, -tsl / shift, 0])
-rotate([0, 0, 180])
-roundedTriangle(tsl, 10, 15);
-}
+  difference() {
+    union() {
+      translate([0, tsl / shift, 0])
+      roundedTriangle(tsl, 10, z_height);
 
-translate([0, 0, -1])
-union() {
-// top
-translate([cos(90) * shift_s, sin(90) * shift_s, 0])
-roundedTriangle(tsl_s, 8, 17);
-}
+      translate([0, -tsl / shift, 0])
+      rotate([0, 0, 180])
+      roundedTriangle(tsl, 10, z_height);
+    }
 
-// top right
-translate([cos(30) * shift_s, sin(30) * shift_s, 0])
-rotate([0, 0, 60])
-roundedTriangle(tsl_s, 8, 17);
+    translate([0, 0, -1])
+    union() {
+      // top
+      translate([cos(90) * shift_s, sin(90) * shift_s, 0])
+      roundedTriangle(tsl_s, 8, z_height);
 
-// bottom right
-translate([cos(30) * shift_s, -sin(30) * shift_s, 0])
-rotate([0, 0, 120])
-roundedTriangle(tsl_s, 8, 17);
+      // top right
+      translate([cos(30) * shift_s, sin(30) * shift_s, 0])
+      rotate([0, 0, 60])
+      roundedTriangle(tsl_s, 8, z_height);
 
-// bottom
-translate([cos(90) * shift_s, -sin(90) * shift_s, 0])
-rotate([0, 0, 180])
-roundedTriangle(tsl_s, 8, 17);
+      // bottom right
+      translate([cos(30) * shift_s, -sin(30) * shift_s, 0])
+      rotate([0, 0, 120])
+      roundedTriangle(tsl_s, 8, z_height);
 
-// bottom left
-translate([-cos(30) * shift_s, -sin(30) * shift_s, 0])
-rotate([0, 0, 120])
-roundedTriangle(tsl_s, 8, 17);
+      // bottom
+      translate([cos(90) * shift_s, -sin(90) * shift_s, 0])
+      rotate([0, 0, 180])
+      roundedTriangle(tsl_s, 8, z_height);
 
-// top left
-translate([-cos(30) * shift_s, sin(30) * shift_s, 0])
-rotate([0, 0, 60])
-roundedTriangle(tsl_s, 8, 17);
+      // bottom left
+      translate([-cos(30) * shift_s, -sin(30) * shift_s, 0])
+      rotate([0, 0, 120])
+      roundedTriangle(tsl_s, 8, z_height);
 
-// center
-linear_extrude(height=17)
-circle(r=tsl_s);
+      // top left
+      translate([-cos(30) * shift_s, sin(30) * shift_s, 0])
+      rotate([0, 0, 60])
+      roundedTriangle(tsl_s, 8, z_height);
+
+      // center
+      linear_extrude(height=z_height)
+      circle(r=tsl_s);
+    }
+  }
+
+  translate([-100, -100, 20])
+  rotate([5, 5, 0])
+  cube([200, 200, 20]);
 }
