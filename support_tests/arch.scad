@@ -1,7 +1,10 @@
 
+width = 35;
+outer_radius = 35;
+inner_radius = 25;
+thickness = outer_radius - inner_radius;
 
-translate([0, 0, -13])
-rotate([90, -30, 90])
-rotate_extrude(angle=120, $fn=200)
-translate([25, 0, 0])
-square([5, 25]);
+rotate([90, 0, 0])
+rotate_extrude(angle=180, $fn=200)
+translate([inner_radius, -width/2, 0])
+square([thickness, width]);
