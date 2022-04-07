@@ -9,13 +9,11 @@ echo("Side Count: ", side_counts);
 radius_step = (radius_max - radius_min) / count;
 
 base_height = 1;
-base_width = 2 * side_counts *radius_max + 2;
+base_width = 2 * side_counts * radius_max + 2;
 
 translate([-base_width/2, -base_width/2, 0])
 union() {
-cube([base_width, base_width, base_height]);
-
-translate([radius_max, radius_max, base_height-0.1])
+translate([radius_max, radius_max, 0])
 for(i = [0:side_counts-1]) {
   for(j = [0:side_counts-1]) {
     k = i * side_counts + j + 1;
