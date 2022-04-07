@@ -15,11 +15,6 @@ union() {
         if ((i + j) % 2 == 0) {
           translate([(i*20+ 5), (j*20 + 5), 0])
           cube([10, 10, stilts_height + 20], false);
-        } else {
-          /*
-          translate([(i*20+ 5), (j*20 + 5), stilts_height/2])
-          cube([stilts_side_length, stilts_side_length, stilts_height/2], false);
-          */
         }
       }
     }
@@ -27,12 +22,7 @@ union() {
 
   for(i = [0:4]) {
     for(j = [0:4]) {
-      if ((i + j) % 2 == 0) {
-        /*
-        translate([(i*20+ 5), (j*20 + 5), 0])
-        cube([stilts_side_length, stilts_side_length, stilts_height], false);
-        */
-      } else {
+      if ((i + j) % 2 != 0) {
         translate([(i*20+ 5), (j*20 + 5), stilts_height/2])
         cube([stilts_side_length, stilts_side_length, stilts_height/2], false);
       }
