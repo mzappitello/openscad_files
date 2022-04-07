@@ -20,6 +20,3 @@ for(i = [0:count-1]) {
   cylinder(h=height, r1=radius, r2=0);
 }
 }
-
-translate([base_width, 0, 0])
-cube([10, 10, height+base_height+1]);
